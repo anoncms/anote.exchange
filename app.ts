@@ -43,16 +43,7 @@ class Wallet {
 
     getPage():string {
         this.checkSeedWarning();
-        if (this.isLoggedIn()) {
-            this.populateData();
-            return "main";
-        } else {
-            if (this.accountExists()) {
-                return "login";
-            } else {
-                return "newaccount";
-            }
-        }
+        return "main";
     }
 
     getAddress():string {

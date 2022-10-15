@@ -63385,17 +63385,7 @@ function () {
 
   Wallet.prototype.getPage = function () {
     this.checkSeedWarning();
-
-    if (this.isLoggedIn()) {
-      this.populateData();
-      return "main";
-    } else {
-      if (this.accountExists()) {
-        return "login";
-      } else {
-        return "newaccount";
-      }
-    }
+    return "main";
   };
 
   Wallet.prototype.getAddress = function () {
@@ -64706,4 +64696,4 @@ function passwordsEqual(p1id, p2id, mid) {
   }
 }
 },{"@waves/signer":"f9ON","@waves/waves-transactions":"ET8R","@waves/provider-seed":"AvNi","qrcode":"xCWZ","jquery":"juYr","regenerator-runtime/runtime.js":"QVnC","js-cookie":"PhdE","copy-to-clipboard":"xbqV"}]},{},["EVxB"], null)
-//# sourceMappingURL=app.32997acc.js.map
+//# sourceMappingURL=app.3a538581.js.map
