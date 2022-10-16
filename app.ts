@@ -34,3 +34,15 @@ function createTranslation() {
 document.addEventListener('DOMContentLoaded', (event) => {
     createTranslation();
 })
+
+$("#buttonExchange").on( "click", function() {
+    $("#step1").fadeOut(function() {
+        $("#step2").fadeIn();
+    });
+});
+
+$("#buttonBack").on( "click", function() {
+    $("#step2").fadeOut(function() {
+        $("#step1").fadeIn();
+    });
+});

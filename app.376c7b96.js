@@ -12052,5 +12052,15 @@ function createTranslation() {
 document.addEventListener('DOMContentLoaded', function (event) {
   createTranslation();
 });
+(0, _jquery.default)("#buttonExchange").on("click", function () {
+  (0, _jquery.default)("#step1").fadeOut(function () {
+    (0, _jquery.default)("#step2").fadeIn();
+  });
+});
+(0, _jquery.default)("#buttonBack").on("click", function () {
+  (0, _jquery.default)("#step2").fadeOut(function () {
+    (0, _jquery.default)("#step1").fadeIn();
+  });
+});
 },{"jquery":"juYr","regenerator-runtime/runtime.js":"QVnC"}]},{},["EVxB"], null)
-//# sourceMappingURL=app.ae93f117.js.map
+//# sourceMappingURL=app.376c7b96.js.map
