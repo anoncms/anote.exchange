@@ -12006,28 +12006,29 @@ try {
 },{}],"EVxB":[function(require,module,exports) {
 "use strict";
 
-var __importDefault = this && this.__importDefault || function (mod) {
-  return mod && mod.__esModule ? mod : {
-    "default": mod
-  };
-};
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var jquery_1 = __importDefault(require("jquery"));
+var _jquery = _interopRequireDefault(require("jquery"));
 
 require("regenerator-runtime/runtime.js");
 
-var Exchange =
-/** @class */
-function () {
-  function Exchange() {}
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-  Exchange.prototype.getPage = function () {
-    return "main";
-  };
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+
+var Exchange = /*#__PURE__*/function () {
+  function Exchange() {
+    _classCallCheck(this, Exchange);
+  }
+
+  _createClass(Exchange, [{
+    key: "getPage",
+    value: function getPage() {
+      return "main";
+    }
+  }]);
 
   return Exchange;
 }();
@@ -12037,12 +12038,13 @@ var activeScreen = "home";
 var exchange = new Exchange(); // Button bindings
 
 function createTranslation() {
-  var lang = (0, jquery_1.default)("#lang").val();
-  jquery_1.default.getJSON("locales/" + lang + ".json", function (data) {
+  var lang = (0, _jquery.default)("#lang").val();
+
+  _jquery.default.getJSON("locales/" + lang + ".json", function (data) {
     t = data.app;
     var page = exchange.getPage();
-    (0, jquery_1.default)("#page-loading").fadeOut(function () {
-      (0, jquery_1.default)("#page-" + page).fadeIn();
+    (0, _jquery.default)("#page-loading").fadeOut(function () {
+      (0, _jquery.default)("#page-" + page).fadeIn();
     });
   });
 }
@@ -12051,4 +12053,4 @@ document.addEventListener('DOMContentLoaded', function (event) {
   createTranslation();
 });
 },{"jquery":"juYr","regenerator-runtime/runtime.js":"QVnC"}]},{},["EVxB"], null)
-//# sourceMappingURL=app.e186df4d.js.map
+//# sourceMappingURL=app.ae93f117.js.map
