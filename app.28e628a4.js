@@ -12213,14 +12213,34 @@ document.addEventListener('DOMContentLoaded', function (event) {
   createTranslation();
 });
 (0, _jquery.default)("#buttonExchange").on("click", function () {
-  (0, _jquery.default)("#step1").fadeOut(function () {
-    (0, _jquery.default)("#step2").fadeIn();
-  });
+  var amount = (0, _jquery.default)("#amountSend").val();
+
+  if ((amount === null || amount === void 0 ? void 0 : amount.toString().length) == 0) {
+    (0, _jquery.default)("#messageError1").fadeIn(function () {
+      setTimeout(function () {
+        (0, _jquery.default)("#messageError1").fadeOut();
+      }, 500);
+    });
+  } else {
+    (0, _jquery.default)("#step1").fadeOut(function () {
+      (0, _jquery.default)("#step2").fadeIn();
+    });
+  }
 });
 (0, _jquery.default)("#buttonExchange2").on("click", function () {
-  (0, _jquery.default)("#step2").fadeOut(function () {
-    (0, _jquery.default)("#step3").fadeIn();
-  });
+  var address = (0, _jquery.default)("#address").val();
+
+  if ((address === null || address === void 0 ? void 0 : address.toString().length) == 0) {
+    (0, _jquery.default)("#messageError2").fadeIn(function () {
+      setTimeout(function () {
+        (0, _jquery.default)("#messageError2").fadeOut();
+      }, 500);
+    });
+  } else {
+    (0, _jquery.default)("#step2").fadeOut(function () {
+      (0, _jquery.default)("#step3").fadeIn();
+    });
+  }
 });
 (0, _jquery.default)("#buttonBack").on("click", function () {
   (0, _jquery.default)("#step2").fadeOut(function () {
@@ -12246,4 +12266,4 @@ document.addEventListener('DOMContentLoaded', function (event) {
   });
 });
 },{"jquery":"juYr","regenerator-runtime/runtime.js":"QVnC","copy-to-clipboard":"xbqV"}]},{},["EVxB"], null)
-//# sourceMappingURL=app.094db2bc.js.map
+//# sourceMappingURL=app.28e628a4.js.map
