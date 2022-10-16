@@ -41,6 +41,12 @@ $("#buttonExchange").on( "click", function() {
     });
 });
 
+$("#buttonExchange2").on( "click", function() {
+    $("#step2").fadeOut(function() {
+        $("#step3").fadeIn();
+    });
+});
+
 $("#buttonBack").on( "click", function() {
     $("#step2").fadeOut(function() {
         $("#step1").fadeIn();
