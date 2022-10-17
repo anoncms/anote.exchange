@@ -12265,5 +12265,11 @@ document.addEventListener('DOMContentLoaded', function (event) {
     }, 500);
   });
 });
+(0, _jquery.default)("#buttonToggle").on("click", function () {
+  var from = (0, _jquery.default)("#from").html();
+  var to = (0, _jquery.default)("#to").html();
+  (0, _jquery.default)("#from").html(to);
+  (0, _jquery.default)("#to").html(from);
+});
 },{"jquery":"juYr","regenerator-runtime/runtime.js":"QVnC","copy-to-clipboard":"xbqV"}]},{},["EVxB"], null)
-//# sourceMappingURL=app.28e628a4.js.map
+//# sourceMappingURL=app.ae8d9695.js.map
