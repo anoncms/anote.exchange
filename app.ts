@@ -50,6 +50,7 @@ $("#buttonExchange").on( "click", function() {
     } else {
         if (amount != undefined) {
             $("#amountSend1").val(amount);
+            $("#sendAmount").val(amount);
         }
         $("#step2Loading").fadeIn();
         $.getJSON("https://exchange.anote.digital/calculate/" + fromC + "/" + toC + "/" + amount, function(data) {

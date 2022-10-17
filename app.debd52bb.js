@@ -12226,6 +12226,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
   } else {
     if (amount != undefined) {
       (0, _jquery.default)("#amountSend1").val(amount);
+      (0, _jquery.default)("#sendAmount").val(amount);
     }
 
     (0, _jquery.default)("#step2Loading").fadeIn();
@@ -12344,4 +12345,4 @@ function capitalizeFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
 },{"jquery":"juYr","regenerator-runtime/runtime.js":"QVnC","copy-to-clipboard":"xbqV"}]},{},["EVxB"], null)
-//# sourceMappingURL=app.63bb5c77.js.map
+//# sourceMappingURL=app.debd52bb.js.map
