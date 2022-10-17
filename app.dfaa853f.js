@@ -12195,8 +12195,8 @@ var Exchange = /*#__PURE__*/function () {
 
 var t;
 var activeScreen = "home";
-var fromC = "anote";
-var toC = "waves";
+var fromC = "waves";
+var toC = "anote";
 var exchange = new Exchange(); // Button bindings
 
 function createTranslation() {
@@ -12286,11 +12286,14 @@ document.addEventListener('DOMContentLoaded', function (event) {
       }, 500);
     });
   } else {
+    (0, _jquery.default)("#calcLoading").fadeIn();
+
     _jquery.default.getJSON("https://exchange.anote.digital/calculate/" + fromC + "/" + toC + "/" + amount, function (data) {
       (0, _jquery.default)("#amountInstant").val(data.result_instant);
       (0, _jquery.default)("#amountDelayed").val(data.result_delay);
+      (0, _jquery.default)("#calcLoading").fadeOut();
     });
   }
 });
 },{"jquery":"juYr","regenerator-runtime/runtime.js":"QVnC","copy-to-clipboard":"xbqV"}]},{},["EVxB"], null)
-//# sourceMappingURL=app.ad40c41e.js.map
+//# sourceMappingURL=app.dfaa853f.js.map

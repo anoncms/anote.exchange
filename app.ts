@@ -17,8 +17,8 @@ class Exchange {
 
 var t;
 var activeScreen = "home";
-var fromC = "anote";
-var toC = "waves";
+var fromC = "waves";
+var toC = "anote";
 
 const exchange = new Exchange();
 
@@ -114,9 +114,11 @@ $("#buttonCalc").on( "click", function() {
             }, 500);
         });
     } else {
+        $("#calcLoading").fadeIn();
         $.getJSON("https://exchange.anote.digital/calculate/" + fromC + "/" + toC + "/" + amount, function(data) {
             $("#amountInstant").val(data.result_instant);
             $("#amountDelayed").val(data.result_delay);
+            $("#calcLoading").fadeOut();
         });
     }
 });
