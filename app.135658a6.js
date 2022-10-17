@@ -12275,6 +12275,9 @@ document.addEventListener('DOMContentLoaded', function (event) {
   var oldTo = toC;
   toC = fromC;
   fromC = oldTo;
+  (0, _jquery.default)("#ticker1").html(capitalizeFirstLetter(fromC));
+  (0, _jquery.default)("#ticker2").html(capitalizeFirstLetter(toC));
+  (0, _jquery.default)("#ticker3").html(capitalizeFirstLetter(toC));
 });
 (0, _jquery.default)("#buttonCalc").on("click", function () {
   var amount = (0, _jquery.default)("#amountSend").val();
@@ -12295,5 +12298,9 @@ document.addEventListener('DOMContentLoaded', function (event) {
     });
   }
 });
+
+function capitalizeFirstLetter(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
 },{"jquery":"juYr","regenerator-runtime/runtime.js":"QVnC","copy-to-clipboard":"xbqV"}]},{},["EVxB"], null)
-//# sourceMappingURL=app.dfaa853f.js.map
+//# sourceMappingURL=app.135658a6.js.map

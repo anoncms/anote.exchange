@@ -103,6 +103,10 @@ $("#buttonToggle").on( "click", function() {
     var oldTo = toC;
     toC = fromC;
     fromC = oldTo;
+
+    $("#ticker1").html(capitalizeFirstLetter(fromC));
+    $("#ticker2").html(capitalizeFirstLetter(toC));
+    $("#ticker3").html(capitalizeFirstLetter(toC));
 });
 
 $("#buttonCalc").on( "click", function() {
@@ -122,3 +126,7 @@ $("#buttonCalc").on( "click", function() {
         });
     }
 });
+
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
