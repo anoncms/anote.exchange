@@ -12195,6 +12195,8 @@ var Exchange = /*#__PURE__*/function () {
 
 var t;
 var activeScreen = "home";
+var fromC = "anote";
+var toC = "waves";
 var exchange = new Exchange(); // Button bindings
 
 function createTranslation() {
@@ -12270,6 +12272,25 @@ document.addEventListener('DOMContentLoaded', function (event) {
   var to = (0, _jquery.default)("#to").html();
   (0, _jquery.default)("#from").html(to);
   (0, _jquery.default)("#to").html(from);
+  var oldTo = toC;
+  toC = fromC;
+  fromC = oldTo;
+});
+(0, _jquery.default)("#buttonCalc").on("click", function () {
+  var amount = (0, _jquery.default)("#amountSend").val();
+
+  if ((amount === null || amount === void 0 ? void 0 : amount.toString().length) == 0) {
+    (0, _jquery.default)("#messageError1").fadeIn(function () {
+      setTimeout(function () {
+        (0, _jquery.default)("#messageError1").fadeOut();
+      }, 500);
+    });
+  } else {
+    _jquery.default.getJSON("https://exchange.anote.digital/calculate/" + fromC + "/" + toC + "/" + amount, function (data) {
+      (0, _jquery.default)("#amountInstant").val(data.result_instant);
+      (0, _jquery.default)("#amountDelayed").val(data.result_delay);
+    });
+  }
 });
 },{"jquery":"juYr","regenerator-runtime/runtime.js":"QVnC","copy-to-clipboard":"xbqV"}]},{},["EVxB"], null)
-//# sourceMappingURL=app.ae8d9695.js.map
+//# sourceMappingURL=app.ad40c41e.js.map

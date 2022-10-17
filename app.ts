@@ -17,6 +17,8 @@ class Exchange {
 
 var t;
 var activeScreen = "home";
+var fromC = "anote";
+var toC = "waves";
 
 const exchange = new Exchange();
 
@@ -98,4 +100,23 @@ $("#buttonToggle").on( "click", function() {
     var to = $("#to").html();
     $("#from").html(to);
     $("#to").html(from);
+    var oldTo = toC;
+    toC = fromC;
+    fromC = oldTo;
+});
+
+$("#buttonCalc").on( "click", function() {
+    var amount = $("#amountSend").val();
+    if (amount?.toString().length == 0) {
+        $("#messageError1").fadeIn(function(){
+            setTimeout(function(){
+                $("#messageError1").fadeOut();
+            }, 500);
+        });
+    } else {
+        $.getJSON("https://exchange.anote.digital/calculate/" + fromC + "/" + toC + "/" + amount, function(data) {
+            $("#amountInstant").val(data.result_instant);
+            $("#amountDelayed").val(data.result_delay);
+        });
+    }
 });
