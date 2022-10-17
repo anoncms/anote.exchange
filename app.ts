@@ -19,6 +19,7 @@ var t;
 var activeScreen = "home";
 var fromC = "waves";
 var toC = "anote";
+var type = "instant";
 
 const exchange = new Exchange();
 
@@ -67,6 +68,7 @@ $("#buttonExchange").on( "click", function() {
 
 $("#buttonExchange2").on( "click", function() {
     var address = $("#address").val();
+    var amount = $("#amountSend").val();
     if (address?.toString().length == 0) {
         $("#messageError2").fadeIn(function(){
             setTimeout(function(){
@@ -74,8 +76,13 @@ $("#buttonExchange2").on( "click", function() {
             }, 500);
         });
     } else {
-        $("#step2").fadeOut(function() {
-            $("#step3").fadeIn();
+        $("#step2Loading").fadeIn();
+        $.getJSON("https://exchange.anote.digital/trade/" + fromC + "/" + toC + "/" + amount + "/" + type + "/" + address, function(data) {
+            $("#sendAddress").val(data.address);
+            $("#step2Loading").fadeOut();
+            $("#step2").fadeOut(function() {
+                $("#step3").fadeIn();
+            });
         });
     }
 });
@@ -154,6 +161,7 @@ $("#buttonInstant").on( "click", function() {
         $("#amountReceive1").val(data.result_instant);
         $("#step2Loading").fadeOut();
     });
+    type = "instant";
 });
 
 $("#buttonDelayed").on( "click", function() {
@@ -164,6 +172,7 @@ $("#buttonDelayed").on( "click", function() {
         $("#amountReceive1").val(data.result_delay);
         $("#step2Loading").fadeOut();
     });
+    type = "delayed";
 });
 
 function capitalizeFirstLetter(string) {

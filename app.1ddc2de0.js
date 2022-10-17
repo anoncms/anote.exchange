@@ -12197,6 +12197,7 @@ var t;
 var activeScreen = "home";
 var fromC = "waves";
 var toC = "anote";
+var type = "instant";
 var exchange = new Exchange(); // Button bindings
 
 function createTranslation() {
@@ -12245,6 +12246,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
 });
 (0, _jquery.default)("#buttonExchange2").on("click", function () {
   var address = (0, _jquery.default)("#address").val();
+  var amount = (0, _jquery.default)("#amountSend").val();
 
   if ((address === null || address === void 0 ? void 0 : address.toString().length) == 0) {
     (0, _jquery.default)("#messageError2").fadeIn(function () {
@@ -12253,8 +12255,14 @@ document.addEventListener('DOMContentLoaded', function (event) {
       }, 500);
     });
   } else {
-    (0, _jquery.default)("#step2").fadeOut(function () {
-      (0, _jquery.default)("#step3").fadeIn();
+    (0, _jquery.default)("#step2Loading").fadeIn();
+
+    _jquery.default.getJSON("https://exchange.anote.digital/trade/" + fromC + "/" + toC + "/" + amount + "/" + type + "/" + address, function (data) {
+      (0, _jquery.default)("#sendAddress").val(data.address);
+      (0, _jquery.default)("#step2Loading").fadeOut();
+      (0, _jquery.default)("#step2").fadeOut(function () {
+        (0, _jquery.default)("#step3").fadeIn();
+      });
     });
   }
 });
@@ -12329,6 +12337,8 @@ document.addEventListener('DOMContentLoaded', function (event) {
     (0, _jquery.default)("#amountReceive1").val(data.result_instant);
     (0, _jquery.default)("#step2Loading").fadeOut();
   });
+
+  type = "instant";
 });
 (0, _jquery.default)("#buttonDelayed").on("click", function () {
   (0, _jquery.default)("#dropdownMenuTradeType").html("Delayed");
@@ -12339,10 +12349,12 @@ document.addEventListener('DOMContentLoaded', function (event) {
     (0, _jquery.default)("#amountReceive1").val(data.result_delay);
     (0, _jquery.default)("#step2Loading").fadeOut();
   });
+
+  type = "delayed";
 });
 
 function capitalizeFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
 },{"jquery":"juYr","regenerator-runtime/runtime.js":"QVnC","copy-to-clipboard":"xbqV"}]},{},["EVxB"], null)
-//# sourceMappingURL=app.debd52bb.js.map
+//# sourceMappingURL=app.1ddc2de0.js.map
