@@ -12262,6 +12262,18 @@ document.addEventListener('DOMContentLoaded', function (event) {
       (0, _jquery.default)("#step2Loading").fadeOut();
       (0, _jquery.default)("#step2").fadeOut(function () {
         (0, _jquery.default)("#step3").fadeIn();
+
+        if (fromC == "anote") {
+          _jquery.default.getJSON("https://nodes.wavesplatform.com/addresses/balance/" + address, function (data) {
+            var address = (0, _jquery.default)("#address").val();
+            waitForBalance(fromC, address, data.balance);
+          });
+        } else {
+          _jquery.default.getJSON("https://nodes.anote.digital/addresses/balance/" + address, function (data) {
+            var address = (0, _jquery.default)("#address").val();
+            waitForBalance(fromC, address, data.balance);
+          });
+        }
       });
     });
   }
@@ -12356,5 +12368,37 @@ document.addEventListener('DOMContentLoaded', function (event) {
 function capitalizeFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
+
+function waitForBalance(from, address, balance) {
+  if (from == "anote") {
+    _jquery.default.getJSON("https://nodes.wavesplatform.com/addresses/balance/" + address, function (data) {
+      if (balance == data.balance) {
+        setTimeout(function () {
+          waitForBalance(from, address, data.balance);
+        }, 1000);
+      } else {
+        (0, _jquery.default)("#messageWait").fadeOut(function () {
+          (0, _jquery.default)("#messageWait").html("Your trade is done!");
+          (0, _jquery.default)("#step3Loading").hide();
+          (0, _jquery.default)("#messageWait").fadeIn();
+        });
+      }
+    });
+  } else {
+    _jquery.default.getJSON("https://nodes.anote.digital/addresses/balance/" + address, function (data) {
+      if (balance == data.balance) {
+        setTimeout(function () {
+          waitForBalance(from, address, data.balance);
+        }, 1000);
+      } else {
+        (0, _jquery.default)("#messageWait").fadeOut(function () {
+          (0, _jquery.default)("#messageWait").html("Your trade is done!");
+          (0, _jquery.default)("#step3Loading").hide();
+          (0, _jquery.default)("#messageWait").fadeIn();
+        });
+      }
+    });
+  }
+}
 },{"jquery":"juYr","regenerator-runtime/runtime.js":"QVnC","copy-to-clipboard":"xbqV"}]},{},["EVxB"], null)
-//# sourceMappingURL=app.1ddc2de0.js.map
+//# sourceMappingURL=app.75273f77.js.map
